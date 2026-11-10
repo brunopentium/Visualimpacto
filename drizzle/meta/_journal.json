@@ -43,6 +43,20 @@
       "when": 1794334995724,
       "tag": "0005_whole_glorian",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1794335923337,
+      "tag": "0006_smooth_prodigy",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1794336029441,
+      "tag": "0007_narrow_silver_fox",
+      "breakpoints": true
     }
   ]
 }

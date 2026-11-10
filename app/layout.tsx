@@ -4,6 +4,7 @@ import "./crm.css";
 import "./clients.css";
 import "./production.css";
 import "./prospect-ai.css";
+import "./finance.css";
 
 export const metadata: Metadata = {
   title: "Visual Impacto — Admin",

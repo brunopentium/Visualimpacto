@@ -36,6 +36,17 @@ Meu dia exibe prazos e quantidades em revisão/aprovadas. Tempo e custo são inf
 
 Não há disparos, publicações, contratação ou cobrança automática.
 
+## Etapa 5 — Financeiro manual
+Previsões a receber por período/serviço confirmado (preço oficial do contrato) ou adicional avulso; despesas previstas por categoria e vínculo opcional ao serviço. Previsões não criam lançamentos de caixa. Um serviço tem no máximo uma previsão não cancelada; períodos futuros e parcelas não são gerados automaticamente. Previsão é fotografia do valor combinado, não acompanha alterações posteriores do contrato. Cancelar contrato não cancela previsões nem movimenta caixa automaticamente.
+
+Movimentos: recebimento parcial com bruto e taxa, pagamento de despesa parcial, reembolso ligado ao recebimento original, aporte, retirada e saldo inicial positivo/negativo. Tudo é declaração do administrador sobre movimento já ocorrido, sem integração bancária, Mercado Pago, emissão de nota, cobrança ou transferência real. Nunca armazenar senhas, número completo de cartão ou chaves secretas na referência. Taxas de recebimento não devem ser lançadas novamente como despesa. Valores são centavos inteiros; números negativos só por direção da abertura.
+
+Resultado operacional de caixa do período = recebimentos brutos − reembolsos − taxas − despesas pagas; não é lucro contábil/fiscal, e exclui capital e abertura. Saldo de caixa é acumulado dos registros, não saldo bancário consultado. Contratado usa serviços ativos/encerrados por data de início no período; a receber/a pagar incluem todo o saldo pendente. Financeiro no Meu dia aponta valores e vencimentos sem enviar cobranças.
+
+Reembolso reabre saldo da previsão, preservando a taxa original (sem presumir devolução da taxa). Para encerrar a dívida após reembolso integral, cancelar a previsão explicitamente. Correção/cancelamento de lançamento só ajusta o registro, não executa estorno; originais e motivos permanecem. Valor incorreto exige cancelar e recriar, sem editar o original. Previsões com saldo liquidado não podem ser canceladas sem corrigir/reembolsar; recebimento com reembolso vinculado não pode ser cancelado antes da correção dos dependentes. Não há exclusão definitiva nem restauração automática do lançamento cancelado.
+
+Migrações 0006 e 0007: gatilhos de limites/consistência e índices parciais protegem recebimentos, pagamentos, reembolsos, abertura e cancelamentos inclusive em concorrência; preservar gatilhos em migrações posteriores. Uma abertura ativa e data igual/anterior aos movimentos. Formulários usam chave idempotente por dono para evitar duplicar previsões/movimentos após reenvio; log e registro são transacionais. Exportação JSON v6 inclui financeiro (cancelados também), sem chaves internas de requisição ou segredos. Custos/tempos informados na produção não criam despesas automáticas para evitar contagem duplicada.
+
 ## Prospecção assistida por IA
 Gerador local de prompt com quantidade (1–50), região livre, segmentos, estratégia Meta, prioridade de independentes, exclusões e critérios adicionais. Não chama IA, API da Meta, busca ou envio de mensagens. Prompt pede navegação real e JSON UTF-8 v1 (app visualimpacto-prospeccao), uma ficha por empresa, fontes e datas, estimativas explícitas. Matriz preservada: decisor 30, recorrência 25, capacidade estimada 20, adequação 15, anúncios ativos confirmados 10. Prioridades A >=75, B >=50 e C abaixo são triagem, não probabilidade. Gap visual e demais inferências são estimativas; não exige comprovação excessiva de acesso ao decisor/orçamento.
 
