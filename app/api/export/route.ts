@@ -1,0 +1,6 @@
+import {getAdminUser as getChatGPTUser} from '../../auth';
+import {getDb} from '../../../db';
+import {settings,audit} from '../../../db/schema';
+import {eq} from 'drizzle-orm';
+export const dynamic='force-dynamic';
+export async function GET(){const u=await getChatGPTUser();if(!u)return Response.json({error:'Acesso não autorizado'},{status:401});try{const db=getDb();const s=await db.select().from(settings).where(eq(settings.ownerId,u.userId));const a=await db.select().from(audit).where(eq(audit.ownerId,u.userId));return new Response(JSON.stringify({schemaVersion:1,app:'Visual Impacto Admin',exportedAt:new Date().toISOString(),settings:s.map(({ownerId,...r})=>r),history:a.map(({ownerId,...r})=>r)},null,2),{headers:{'Content-Type':'application/json','Content-Disposition':'attachment; filename="visualimpacto-admin-backup.json"','Cache-Control':'private, no-store'}});}catch{return Response.json({error:'Exportação indisponível'},{status:503});}}
