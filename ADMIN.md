@@ -21,8 +21,16 @@ Biblioteca usa R2 BUCKET; D1 armazena metadados, categoria, origem/autorização
 
 Arquivar preserva dados e originais; não cancela serviços. Remoção definitiva e limpeza de retenção não estão implementadas. JSON inclui todos os cadastros/metadados (inclusive arquivados), não os binários: baixar originais separadamente. Sem restauração automática. Dados, arquivos e segredos nunca entram no GitHub.
 
+## Etapa 4 entregue
+Produção por vídeo contratado: planejamento, briefing/prazo, etapas, versões e materiais utilizados, checklist manual de qualidade, tempo e custo de IA por versão, aprovação e entrega registradas pelo administrador. Cada vídeo não cancelado reserva uma vaga; gatilhos SQLite na migração 0004 limitam a quantidade em gravações concorrentes e impedem reduzir plano abaixo do reservado. Preservar esses gatilhos nas migrações futuras.
+
+Versões, aprovações e entregas exigem cliente/serviço ativos. Materiais devem pertencer ao cliente e ao serviço ou ser gerais, ativos e autorizados. Materiais gerais obrigatórios valem para todos os vídeos do cliente; os vinculados valem para aquele serviço. Aprovação/entrega revalidam o conjunto obrigatório e as autorizações atuais. A presença real nas cenas e o checklist são conferidos por pessoa, não por análise automática de vídeo. Nenhum envio, publicação ou pagamento é presumido.
+
+A versão mais recente é a única elegível para aprovação/entrega. Nova versão retorna à revisão. Reabrir uma entrega exige nova versão para nova aprovação; a entrega anterior permanece no histórico. Reabertura ocupa a mesma vaga e não duplica vídeos entregues. Eventos e mudanças são gravados juntos com controle de revisão inteira para evitar conflitos de telas simultâneas. Não há exclusão definitiva de versões/eventos.
+
+Meu dia exibe prazos e quantidades em revisão/aprovadas. Tempo e custo são informados por versão, incluindo retrabalho, não medições ou despesas de caixa automáticas. Exportação JSON inclui produção, versões e eventos, sem arquivos binários. Não há prazo comercial ou limite de revisões imposto pelo sistema.
+
 ## Próximas etapas
-4. Produção, versões e entregas.
 5. Financeiro: cobranças e recebimentos separados, caixa e custo.
 6. Marketing e indicadores por período de entrada no funil.
 

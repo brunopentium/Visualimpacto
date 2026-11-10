@@ -1,0 +1,1 @@
+export function hasDbCode(error:unknown,code:'CAPACITY'|'CONTRACT_QUANTITY'){let e:unknown=error;for(let i=0;i<6&&e instanceof Error;i++){if(e.message.includes(code))return true;e=e.cause;}return false;}

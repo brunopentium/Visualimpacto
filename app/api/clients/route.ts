@@ -1,5 +1,6 @@
 import {getAdminUser} from '../../auth';
 import {getDb} from '../../../db';
+import {hasDbCode} from '../../db-errors';
 import {clients,contracts,assets,leads,audit} from '../../../db/schema';
 import {and,eq,desc} from 'drizzle-orm';
 import {plans,contractStatuses,categories,authorizations} from '../../client-model';
@@ -20,4 +21,4 @@ try{
  if(b.op==='updateAsset'){const a=b.asset;if(!a||typeof a.id!=='string'||!categories.includes(a.category)||!authorizations.includes(a.authorization)||typeof a.rightsNotes!=='string'||a.rightsNotes.length>5000||typeof a.required!=='boolean')return reply({error:'Dados do material inválidos'},400);if(a.authorization==='Autorizado'&&!a.rightsNotes.trim())return reply({error:'Registre a origem da autorização de uso.'},400);const current=await db.select().from(assets).where(and(eq(assets.id,a.id),eq(assets.ownerId,u.userId))).get();if(!current)return reply({error:'Material não encontrado'},404);if(a.contractId){const k=await db.select().from(contracts).where(and(eq(contracts.id,a.contractId),eq(contracts.ownerId,u.userId),eq(contracts.clientId,current.clientId!))).get();if(!k)return reply({error:'Serviço não pertence a este cliente'},400);}const changed=await db.update(assets).set({category:a.category,authorization:a.authorization,rightsNotes:a.rightsNotes.trim(),required:a.required?1:0,contractId:a.contractId||null,updatedAt:now}).where(and(eq(assets.id,a.id),eq(assets.ownerId,u.userId),eq(assets.updatedAt,a.updatedAt??''))).returning({id:assets.id});if(!changed.length)return reply({error:'Material alterado em outra tela. Atualize.'},409);await log('Classificação de material atualizada');return reply({ok:true});}
  if(b.op==='archiveAsset'||b.op==='restoreAsset'){const changed=await db.update(assets).set({archived:b.op==='archiveAsset'?1:0,updatedAt:now}).where(and(eq(assets.id,b.id),eq(assets.ownerId,u.userId))).returning({id:assets.id});if(!changed.length)return reply({error:'Material não encontrado'},404);await log(b.op==='archiveAsset'?'Material arquivado':'Material restaurado');return reply({ok:true});}
  return reply({error:'Operação desconhecida'},400);
-}catch{return reply({error:'Não foi possível salvar. Atualize para conferir o estado do registro.'},503);}}
+}catch(e){if(hasDbCode(e,'CONTRACT_QUANTITY'))return reply({error:'O plano não pode ter menos vídeos que os já planejados. Cancele planejamentos não executados antes de reduzir.'},409);return reply({error:'Não foi possível salvar. Atualize para conferir o estado do registro.'},503);}}

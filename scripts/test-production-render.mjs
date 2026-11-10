@@ -1,0 +1,13 @@
+import {build} from 'esbuild';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {createElement} from 'react';
+import {pathToFileURL} from 'node:url';
+import {resolve} from 'node:path';
+import assert from 'node:assert/strict';
+const path=resolve('node_modules/.cache/production-render-test.mjs');
+await build({entryPoints:['app/production.tsx'],bundle:true,platform:'node',format:'esm',outfile:path,external:['react','react-dom','react/jsx-runtime','lucide-react'],jsx:'automatic'});
+const {default:Production}=await import(pathToFileURL(path));
+const full=renderToStaticMarkup(createElement(Production,{})),compact=renderToStaticMarkup(createElement(Production,{compact:true}));
+for(const label of ['Planejar vídeo','Saldo dos serviços','Briefing','Em produção','Em revisão','Aprovado','Entregue','Cancelado'])assert(full.includes(label),label);
+assert(full.includes('<dialog'));assert(compact.includes('Produção para acompanhar'));assert(!compact.includes('<dialog'));
+console.log('Production SSR smoke passed: board, form, compact daily panel.');

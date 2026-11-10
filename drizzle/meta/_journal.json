@@ -29,6 +29,13 @@
       "when": 1794326845186,
       "tag": "0003_abandoned_monster_badoon",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1794331743406,
+      "tag": "0004_small_mordo",
+      "breakpoints": true
     }
   ]
 }
