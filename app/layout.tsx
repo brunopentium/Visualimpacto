@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./crm.css";
+import "./clients.css";
 
 export const metadata: Metadata = {
   title: "Visual Impacto — Admin",
