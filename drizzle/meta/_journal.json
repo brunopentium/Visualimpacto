@@ -15,6 +15,13 @@
       "when": 1794323749631,
       "tag": "0001_quiet_tempest",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1794324895310,
+      "tag": "0002_pretty_redwing",
+      "breakpoints": true
     }
   ]
 }

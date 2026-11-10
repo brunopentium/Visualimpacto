@@ -10,8 +10,11 @@ Etapa 1: acesso próprio por usuário e senha, configurações em D1, histórico
 - Exportação manual de configurações e histórico. Ainda não há restauração nem backup automático.
 - Segredos necessários: ADMIN_USERNAME e ADMIN_PASSWORD_HASH. Nunca commitar valores. Migrações devem ser aplicadas antes de servir as APIs.
 
+## Etapa 2 entregue
+Prospecção e Meu dia: comércios, segmentos e origem livres, funil, eventos com data de realização, próxima ação, arquivo/restauração e cancelamento de registro sem apagar histórico. Exportação inclui comércios e eventos. Sem importação ou disparos.
+Métricas usam atividades: primeira abordagem por comércio, respostas únicas no período e resposta da coorte de novos abordados; mudar etapa não fabrica eventos. Metas semanais e indicadores usam America/Sao_Paulo. Arquivados são excluídos dos indicadores, mas preservados no export.
+
 ## Próximas etapas
-2. Prospecção e Meu dia: comércios, segmentos, funil, eventos e próxima ação.
 3. Clientes, contratos e biblioteca privada: categorias, autorização de uso, originais e materiais por trabalho.
 4. Produção, versões e entregas.
 5. Financeiro: cobranças e recebimentos separados, caixa e custo.
