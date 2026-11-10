@@ -1,6 +1,6 @@
 export const stages=['A pesquisar','Qualificado','Abordagem enviada','Em conversa','Proposta enviada','Ganho','Perdido'];
 export const activityTypes=['Abordagem','Retorno','Resposta','Proposta','Demonstração autorizada','Fechamento','Observação'];
-export type Lead={id:string;name:string;segment:string;contactName:string;phone:string;email:string;instagram:string;website:string;city:string;source:string;stage:string;nextAction:string;nextDate:string;notes:string;lossReason:string;archived:number;createdAt:string;updatedAt:string};
+export type Lead={research?:string;priorityScore?:number;id:string;name:string;segment:string;contactName:string;phone:string;email:string;instagram:string;website:string;city:string;source:string;stage:string;nextAction:string;nextDate:string;notes:string;lossReason:string;archived:number;createdAt:string;updatedAt:string};
 export type Activity={id:string;leadId:string|null;type:string;date:string;channel:string;notes:string;authorized:number;cancelled:number;createdAt:string};
 export function today(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
 export function weekStart(){const d=new Date(today()+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));return d.toISOString().slice(0,10);}

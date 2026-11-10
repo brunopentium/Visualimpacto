@@ -35,3 +35,12 @@ Meu dia exibe prazos e quantidades em revisão/aprovadas. Tempo e custo são inf
 6. Marketing e indicadores por período de entrada no funil.
 
 Não há disparos, publicações, contratação ou cobrança automática.
+
+## Prospecção assistida por IA
+Gerador local de prompt com quantidade (1–50), região livre, segmentos, estratégia Meta, prioridade de independentes, exclusões e critérios adicionais. Não chama IA, API da Meta, busca ou envio de mensagens. Prompt pede navegação real e JSON UTF-8 v1 (app visualimpacto-prospeccao), uma ficha por empresa, fontes e datas, estimativas explícitas. Matriz preservada: decisor 30, recorrência 25, capacidade estimada 20, adequação 15, anúncios ativos confirmados 10. Prioridades A >=75, B >=50 e C abaixo são triagem, não probabilidade. Gap visual e demais inferências são estimativas; não exige comprovação excessiva de acesso ao decisor/orçamento.
+
+Biblioteca Meta: interface pública de anúncios, não promessa de API irrestrita para anúncios comerciais no Brasil. Diferencia ativos_confirmados, nao_encontrados e nao_verificado; só o primeiro recebe 10 pontos e exige link da Biblioteca + data. Registro de evidência não prova gasto, lucro ou intenção de compra. Presença nas fontes é informada pela IA e precisa de revisão humana.
+
+Importação: arquivo é lido no navegador (até 1 MiB/50 empresas), validado e pré-visualizado. Só itens válidos, novos e selecionados seguem ao servidor após confirmação. Servidor revalida todos os campos, reconta score, revisa duplicados (inclusive arquivados) por nome/cidade, telefone normalizado, e-mail ou perfis; não sobrescreve registros. Identidade normalizada tem índice único por dono em lead_research para evitar reenvio/conflito concorrente da mesma empresa. Duplicidade é triagem conservadora: nomes/canais compartilhados podem precisar de revisão manual. Variantes de nome e canais completamente diferentes ainda podem exigir revisão humana; não é resolução universal de entidades.
+
+Cada importação é transacional: cadastros, pesquisa e histórico juntos; entradas entram em A pesquisar, origem Pesquisa IA, sem atividades artificiais. lead_research mantém lote, score calculado e ficha completa; export JSON v5 inclui essas pesquisas. Não guarda o arquivo bruto. Nenhum dado da base é automaticamente anexado ao prompt: exclusões são preenchidas pelo administrador. JSON/template e prompts são gerados no navegador. Não enviar dados privados a IAs externas sem decisão do administrador.

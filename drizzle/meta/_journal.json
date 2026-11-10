@@ -36,6 +36,13 @@
       "when": 1794331743406,
       "tag": "0004_small_mordo",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1794334995724,
+      "tag": "0005_whole_glorian",
+      "breakpoints": true
     }
   ]
 }
