@@ -1,5 +1,16 @@
 # Visual Impacto — Admin
 
+## Etapa 6 entregue — marketing interno
+Calendário mensal por canal, ideias/rascunhos, campanhas com objetivo, público, datas e orçamento planejado. Planejamento não agenda publicação. “Publicado” exige legenda, registro de aprovação, data real e link; cada rede tem registro independente. Publicações ficam bloqueadas para edição até reabertura explícita com motivo, sem alterar redes externas. O histórico de gravações permanece no export.
+
+Arquivo de cliente é referência privada; exige material autorizado e registro específico da permissão de divulgação pela agência. Autorização de produção não implica autorização de portfólio. Originais não são comprimidos ou publicados pelo módulo.
+
+Métricas são leituras manuais acumuladas e imutáveis; o resumo usa a mais recente por conteúdo e URL de publicação atual. Datas anteriores à publicação e futuras são recusadas. Campos desconhecidos ficam nulos, não zero. Contagens não são pessoas únicas. Cada leitura mantém URL e data, e todas permanecem no backup.
+
+Contato e despesa podem ser atribuídos a uma campanha principal, sem sobrescrever a origem do CRM. Desvincular exige motivo e preserva registro. Contatos atribuídos incluem arquivados no acumulado histórico. Conversão indica cliente vinculado ao contato com serviço Ativo/Encerrado, não apenas mudança de etapa do funil. Custos pagos somam somente movimentos de Pagamento não cancelados das despesas atribuídas; orçamento e previsão não são gastos. Custo por contato é descritivo, não causalidade, ROAS ou promessa de venda. O filtro de canal aplica-se a conteúdos/leituras; atribuições e caixa são acumulados da campanha inteira.
+
+Nenhum envio, postagem, ativação de anúncio, cobrança ou movimentação financeira automática. Controle de revisão evita sobrescritas concorrentes; chaves de formulário evitam repetição de cadastros/leituras. Backup passa a schemaVersion 7 e inclui os quatro conjuntos de marketing. APIs autenticadas, origem exata no POST e arquivos sem URL pública.
+
 Etapa 1: acesso próprio por usuário e senha, configurações em D1, histórico de gravações e exportação JSON. Sem dados operacionais fictícios.
 
 ## Segurança e operação
